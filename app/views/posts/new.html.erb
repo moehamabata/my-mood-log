@@ -1,0 +1,18 @@
+<h1>新規投稿</h1>
+
+<%= form_with model: @post do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <% form.label :content %><br>
+    <% form.texr_area :content %>
+  </p>
+  <p>
+    <%= form.submit "投稿する" %>
+  </p>
+<% end %>
+
+<%= link_to "一覧へ戻る", posts_path %>
+  
