@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+before_action :set_post, only: [:show, :edit, :update]
+
   # 一覧
   def index
     @posts=Post.all
@@ -6,7 +8,6 @@ class PostsController < ApplicationController
 
   # 詳細
   def show
-    @post=Post.find(params[:id])
   end
 
   # 新規作成フォーム
@@ -26,7 +27,6 @@ class PostsController < ApplicationController
 
   # 編集フォーム
   def edit
-    @post=Post.find(params[:id])
   end
 
   # 投稿更新
@@ -38,6 +38,10 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  # 重複していた処理をまとめる
+  def set_post
+    @post=Post.find(params[:id])
 
   # ストロングパラメータ
   def post_params
