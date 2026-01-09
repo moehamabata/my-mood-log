@@ -1,22 +1,27 @@
 class PostsController < ApplicationController
+# PostsControllerクラスにApplicationControllerを継承させる
 before_action :set_post, only: [:show, :edit, :update]
 
   # 一覧
   def index
+  # indexを定義する
     @posts=Post.all
   end
 
   # 詳細
   def show
+  # showを定義する
   end
 
   # 新規作成フォーム
   def new
+  # newを定義する
     @post=Post.new
   end
 
   # 投稿保存
   def create
+  # createを定義する
     @post=Post.new(post_params)
     if @post.save
       redirect_to @post
