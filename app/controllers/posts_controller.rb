@@ -7,6 +7,7 @@ before_action :set_post, only: [:show, :edit, :update]
   # 一覧
   def index
   # indexを定義する
+  # データベースに保存されている全ての保存データを丸ごと持っていく
     @posts=Post.all
   end
 
