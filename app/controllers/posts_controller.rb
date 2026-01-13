@@ -7,8 +7,8 @@ before_action :set_post, only: [:show, :edit, :update]
   # 一覧
   def index
   # indexを定義する
-  # データベースに保存されている全ての保存データを丸ごと持っていく
     @posts=Post.all
+   # データベースに保存されている全ての保存データを丸ごと持っていく
   end
 
   # 詳細
@@ -27,19 +27,25 @@ before_action :set_post, only: [:show, :edit, :update]
   # createを定義する
     @post=Post.new(post_params)
     if @post.save
+    # 投稿を保存した際は
       redirect_to @post
+      # 投稿を表示させる
     else
       render :new
+    　# 投稿を保存しない際は新規投稿画面に戻る
     end
   end
 
   # 編集フォーム
   def edit
+  # editを定義する
   end
 
   # 投稿更新
   def update
+  # 更新を定義する
     @post=Post.find(params[:id])
+    # idから該当するデータを1件取り出す
     if @post.update(post_params)
       redirect_to @post
     else
