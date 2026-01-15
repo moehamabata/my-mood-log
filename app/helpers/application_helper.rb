@@ -1,2 +1,3 @@
 module ApplicationHelper
+# ApplicationHelperというモジュールを定義する
 end
