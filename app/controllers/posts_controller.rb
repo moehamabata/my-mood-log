@@ -62,7 +62,7 @@ before_action :set_post, only: [:show, :edit, :update]
     # idから該当するデータを1件取り出す
   # ストロングパラメータ
   def post_params
-    # post_
+    # post_paramsを定義する
     params.require(:post).permit(:title, :content)
   end
 end
