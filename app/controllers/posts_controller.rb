@@ -32,7 +32,7 @@ before_action :set_post, only: [:show, :edit, :update]
       # 投稿を表示させる
     else
       render :new
-    　# 投稿を保存しない際は新規投稿画面に戻る
+    # 投稿を保存しない際は新規投稿画面に戻る
     end
   end
 
