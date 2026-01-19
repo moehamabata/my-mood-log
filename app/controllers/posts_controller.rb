@@ -67,4 +67,9 @@ before_action :set_post, only: [:show, :edit, :update]
   end
 end
 
+private
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
+
 end
