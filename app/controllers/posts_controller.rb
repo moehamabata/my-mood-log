@@ -28,11 +28,12 @@ before_action :set_post, only: [:show, :edit, :update]
     @post=Post.new(post_params)
     if @post.save
     # 投稿を保存した際は
-      redirect_to posts_path, notice: "投稿できました！"
+      redirect_to ＠post, notice: "投稿できました！"
       # 投稿を表示させる
     else
+    # 保存に失敗したら
       render :new
-    # 投稿を保存しない際は新規投稿画面に戻る
+      # 新規投稿画面をもう1回表示
     end
   end
 
