@@ -25,7 +25,7 @@ before_action :set_post, only: [:show, :edit, :update]
   # 投稿保存
   def create
   # createを定義する
-    @post=Post.new(post_params)
+    @post = Post.new(post_params)
     if @post.save
     # 投稿を保存した際は
       redirect_to ＠post, notice: "投稿できました！"
