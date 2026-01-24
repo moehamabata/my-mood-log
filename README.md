@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 〇〇日記アプリ（仮）
 
-Things you may want to cover:
+### 概要
+Railsで作成した、自分専用の日記投稿アプリです。
 
-* Ruby version
+### 開発のきっかけ
+プログラミング学習の記録を、自分の作ったツールで残したいと思ったからです。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 目指すエンジニア像
+エラーを楽しみ、解決するたびにワクワクできるエンジニアになりたいです！
