@@ -1,0 +1,37 @@
+<div class="form-wrapper">
+  <div class="form-container">
+    <div class="form-header">
+      <h2>✏️ 日記を編集する</h2>
+      <p>内容を修正して、今の気持ちを再確認しましょう</p>
+    </div>
+
+    <%= form_with(model: @post, local: true, class: "styled-form") do |f| %>
+      <div class="form-group">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :mood, "今の気分は？" %>
+        <%= f.select :mood, [
+          ["✨ 楽しい", "楽しい"],
+          ["🍀 幸せ", "幸せ"],
+          ["☁️ 普通", "普通"],
+          ["🔥 元気", "元気"],
+          ["🌙 寂しい", "寂しい"],
+          ["😢 悲しい", "悲しい"]
+        ], { prompt: "選択してください" }, { class: "form-input" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, "今日のできごと" %>
+        <%= f.text_area :content, rows: 10, class: "form-textarea" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "変更を保存する", class: "btn-submit" %>
+        <%= link_to "キャンセル", post_path(@post), class: "btn-cancel" %>
+      </div>
+    <% end %>
+  </div>
+</div>
