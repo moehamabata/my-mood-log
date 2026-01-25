@@ -11,7 +11,7 @@
   <div class="diary-grid">
     <% @posts.each do |post| %>
       <div class="diary-card">
-        <div class="mood-bar mood-level-<%= post.score %>"></div>
+        <div class="mood-bar mood-level-5"></div>
         
         <div class="card-content">
           <span class="post-date"><%= post.created_at.strftime("%Y.%m.%d") %></span>
