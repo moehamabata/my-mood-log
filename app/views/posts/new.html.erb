@@ -1,26 +1,20 @@
-<h1>新規投稿</h1>
+<div class="form-container">
+  <div class="form-card">
+    <h2>今日の日記を書く</h2>
+    <%= form_with(model: post) do |f| %>
+      <div class="field>
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title, placeholder: "どんな1日でしたか？" %>
+      </div>
 
-<% if @post.errors.any? %>
-  <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <div class="field">
+        <%= f.label :content, "内容" %>
+        <%= f.text_area :content, rows: 10, placeholder: "ここに自由に書いてください..." %>
+      </div>
+
+      <div class="actions"
+        <%= f.submit "日記を保存する", class: "btn-submit" %>
+      </div>
     <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model: @post do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
-  </p>
-  <p>
-    <%= form.submit "投稿する" %>
-  </p>
-<% end %>
-
-<%= link_to "一覧へ戻る", posts_path %>
-  
+  </div>
+</div>
