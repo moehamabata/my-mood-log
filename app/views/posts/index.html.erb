@@ -1,7 +1,25 @@
-<h1>こんにちは！Railsの世界へようこそ</h1>
-# HTMLなので見た目が変わる
-<p>これは私が作った最初のページです</p>
-# HTMLなので見た目が変わる
-<p>現在の時刻は： <%= Time.now %></p>
-# Rubyのプログラムを実行して結果を表示する
-<%= link_to "新規投稿", new_post_path %>
+<header class="main-header">
+  <h1>My Mood Log</h1>
+  <p>日々の感情を可視化する、あなただけの日記帳</p>
+</header>
+
+<div class="container">
+  <div class="action-bar">
+    <%= link_to "新しい日記を書く", new_post_path, class: "btn-new" %>
+  </div>
+
+  <div class="diary-grid">
+    <% @posts.each do |post| %>
+      <div class="diary-card">
+        <div class="mood-bar mood-level-<%= post.score %>"></div>
+        
+        <div class="card-content">
+          <span class="post-date"><%= post.created_at.strftime("%Y.%m.%d") %></span>
+          <h2 class="post-title"><%= post.title %></h2>
+          <p class="post-excerpt"><%= truncate(post.content, length: 60) %></p>
+          <%= link_to "詳しく見る", post_path(post), class: "link-show" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
