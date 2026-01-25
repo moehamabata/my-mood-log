@@ -1,7 +1,7 @@
 <div class="form-container">
   <div class="form-card">
     <h2>今日の日記を書く</h2>
-    <%= form_with(model: post) do |f| %>
+    <%= form_with(model: @post) do |f| %>
       <div class="field>
         <%= f.label :title, "タイトル" %>
         <%= f.text_field :title, placeholder: "どんな1日でしたか？" %>
