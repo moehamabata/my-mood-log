@@ -82,28 +82,26 @@ input[type="text"], textarea {
   font-weight: bold;
 }
 
-<div class="form-wrapper">
-  <div class="form-container">
-    <div class="form-header">
-      <h2>📝 新しい日記</h2>
-      <p>今の気持ちを言葉にしてみましょう</p>
-    </div>
+/* mood-bar の高さを広げて、文字を中央に */
+.mood-bar {
+  padding: 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white; /* 文字色を白に */
+}
 
-    <%= form_with(model: @post, local: true, class: "styled-form") do |f| %>
-      <div class="form-group">
-        <%= f.label :title, "タイトル" %>
-        <%= f.text_field :title, placeholder: "例：最高のランチに出会った", class: "form-input" %>
-      </div>
+/* 気分ごとの色設定（例：楽しい＝オレンジ、幸せ＝ピンクなど） */
+.mood-status-楽しい { background-color: #ff9f43; }
+.mood-status-幸せ { background-color: #ff9ff3; }
+.mood-status-普通 { background-color: #54a0ff; }
+.mood-status-元気 { background-color: #1dd1a1; }
+.mood-status-寂しい { background-color: #5f27cd; }
+.mood-status-悲しい { background-color: #222f3e; }
 
-      <div class="form-group">
-        <%= f.label :content, "今日のできごと" %>
-        <%= f.text_area :content, rows: 10, placeholder: "どんなことがありましたか？", class: "form-textarea" %>
-      </div>
-
-      <div class="form-actions">
-        <%= f.submit "日記を公開する", class: "btn-submit" %>
-        <%= link_to "キャンセルして戻る", posts_path, class: "btn-cancel" %>
-      </div>
-    <% end %>
-  </div>
-</div>
+/* ラベルの見た目を整える */
+.mood-label {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
