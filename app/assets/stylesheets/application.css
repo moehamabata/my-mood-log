@@ -105,3 +105,71 @@ input[type="text"], textarea {
   padding: 2px 10px;
   border-radius: 12px;
 }
+
+/* 詳細画面専用のスタイル */
+.post-detail {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  line-height: 1.8; /* 文章を読みやすく */
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detail-header h1 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-top: 0;
+  border-left: 5px solid #764ba2; /* タイトルの横にアクセントライン */
+  padding-left: 15px;
+}
+
+.mood-badge {
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.detail-content {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 30px 0;
+  min-height: 200px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+}
+
+/* ボタンのデザイン */
+.detail-footer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-edit, .btn-back, .btn-delete {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-edit { background: #764ba2; color: white; }
+.btn-back { background: #eee; color: #666; }
+.btn-delete { background: #ff4757; color: white; }
+
+.btn-edit:hover, .btn-delete:hover { opacity: 0.8; transform: translateY(-2px); }
