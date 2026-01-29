@@ -1,8 +1,8 @@
 require "application_system_test_case"
 
-class PostTest < ApplicationSystemTestCase
-  test "トップページに挨拶が表示されること" do
+class PostsTest < ApplicationSystemTestCase
+  test "visiting the index" do
     visit root_url
-    assert_text "こんにちは！Railsの世界へようこそ"
+    assert_text "こんにちは!Railsの世界へようこそ"
   end
 end
