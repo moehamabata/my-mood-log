@@ -1,4 +1,16 @@
 <%= form_with(model: @post, local: true, class: "styled-form") do |f| %>
+  
+  <% if post.errors.any? %>
+    <div style="color: red;">
+      <p><%= post.errors.count %>件のエラーにより保存できませんでした。</p>
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="form-group">
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, placeholder: "例：最高のランチに出会った", class: "form-input" %>
