@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 # PostsControllerクラスにApplicationControllerを継承させる
-before_action :set_post, only: [:show, :edit, :update]
+before_action :set_post, only: [:show, :edit, :update, :destroy]
 # 共通の準備作業を自動化させておく
 # アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
 
@@ -54,6 +54,13 @@ before_action :set_post, only: [:show, :edit, :update]
       render :edit
     # 投稿に失敗したら編集画面に戻る
     end
+  end
+
+  # 削除フォーム
+  def destroy
+    @post.destroy #データを削除する
+    redirect_to posts_path, status: :see_other, notice: "削除しました"
+    # 削除後は一覧画面に戻る
   end
 
   # 重複していた処理をまとめる
