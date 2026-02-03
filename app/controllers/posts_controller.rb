@@ -31,8 +31,8 @@ before_action :set_post, only: [:show, :edit, :update]
       redirect_to @post, notice: "投稿できました！"
       # 投稿を表示させる
     else
-    # 保存に失敗したら
-      render :new
+    # 保存に失敗したら今のフォーム画面を再表示する
+      render :new, status: :unprocessable_entity
       # 新規投稿画面をもう1回表示
     end
   end
