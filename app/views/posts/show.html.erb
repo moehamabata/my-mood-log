@@ -19,8 +19,9 @@
     <div class="detail-footer">
       <%= link_to "編集する", edit_post_path(@post), class: "btn-edit" %>
       <%= link_to "一覧に戻る", posts_path, class: "btn-back" %>
-      <%# 削除ボタンもここにあると便利です %>
-      <%= link_to "削除", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn-delete" %>
+      <%= link_to "削除", post_path(@post), 
+                   data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, 
+                   class: "btn-delete" %>
     </div>
   </article>
 </div>
