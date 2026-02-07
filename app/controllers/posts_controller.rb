@@ -1,19 +1,19 @@
 class PostsController < ApplicationController
-<%# PostsControllerクラスにApplicationControllerを継承させる %>
+# PostsControllerクラスにApplicationControllerを継承させる
 before_action :set_post, only: [:show, :edit, :update, :destroy]
-<%# 共通の準備作業を自動化させておく %>
-<%# アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい %>
+# 共通の準備作業を自動化させておく
+# アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
 
-  <%# 一覧 %>
+  # 一覧
   def index
-  <%# indexを定義する %>
+  # indexを定義する
     @posts=Post.all
-  <%# データベースに保存されている全ての保存データを丸ごと持っていく %>
+  # データベースに保存されている全ての保存データを丸ごと持っていく
   end
 
-  <%# 詳細 >
+  # 詳細
   def show
-  <%# showを定義する 
+  # showを定義する 
   end
 
   # 新規作成フォーム
