@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 # PostsControllerクラスにApplicationControllerを継承させる
+
+# 1. まず「ログインしているか」を最優先でチェック！
+before_action :authenticare_user!
+
+# 2. その後に「編集するデータがあるか」などを探す
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 # 共通の準備作業を自動化させておく
 # アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
