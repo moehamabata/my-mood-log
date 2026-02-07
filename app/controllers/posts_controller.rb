@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-<%# PostsControllerクラスにApplicationControllerを継承させる >
+<%# PostsControllerクラスにApplicationControllerを継承させる %>
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 <%# 共通の準備作業を自動化させておく %>
 <%# アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい %>
