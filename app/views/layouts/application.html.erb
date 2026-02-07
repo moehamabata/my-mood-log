@@ -7,6 +7,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% flash.each do |key, value| %>
+      <div style="color: blue; padding: 10px; background: #eef;">
+        <%= value %>
+      </div>
+    <% end %>
+
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
