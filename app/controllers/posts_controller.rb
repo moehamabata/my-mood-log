@@ -30,13 +30,16 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   # 投稿保存
   def create
   # createを定義する
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+    # 今ログインしている本人のユーザー情報であるIDが自動的にセットされる
     if @post.save
     # 投稿を保存した際は
       redirect_to @post, notice: "投稿できました！"
       # 投稿を表示させる
     else
     # 保存に失敗したら今のフォーム画面を再表示する
+      puts @post.errors.full_messages
+      # メッセージのエラーを読み込み、反映させる
       render :new, status: :unprocessable_entity
       # 新規投稿画面をもう1回表示
     end
