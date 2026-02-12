@@ -30,7 +30,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   # 投稿保存
   def create
   # createを定義する
-    @post = current_user.posts.build(post_params)
+    # @post = current_user.posts.build(post_params)
+    @post = Post.build(post_params)
     # 今ログインしている本人のユーザー情報であるIDが自動的にセットされる
     if @post.save
     # 投稿を保存した際は
@@ -71,21 +72,30 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     # 削除後は一覧画面に戻る
   end
 
-  # 重複していた処理をまとめる
-  def set_post
-  # set_postを定義する
-    @post=Post.find(params[:id])
-    # idから該当するデータを1件取り出す
-  # ストロングパラメータ
-  def post_params
-    # post_paramsを定義する
-    params.require(:post).permit(:title, :content)
-  end
-end
+  # # 重複していた処理をまとめる
+  # def set_post
+  # # set_postを定義する
+  #   @post=Post.find(params[:id])
+  #   # idから該当するデータを1件取り出す
+  # end
+  # # ストロングパラメータ
+  # def post_params
+  #   # post_paramsを定義する
+  #   params.require(:post).permit(:title, :content)
+  # end
+# end
 
 private
+  # 重複していた処理をまとめる
+  def set_post
+    # set_postを定義する
+    @post=Post.find(params[:id])
+    # idから該当するデータを1件取り出す
+  end
+
   def post_params
-    params.require(:post).permit(:title, :content, :mood)
+    # params.require(:post).permit(:title, :content, :mood)
+    params.require(:user).permit(:title, :content, :mood)
   end
 
 end
