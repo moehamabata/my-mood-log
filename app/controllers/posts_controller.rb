@@ -81,7 +81,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   # # ストロングパラメータ
   # def post_params
   #   # post_paramsを定義する
-  #   params.require(:post).permit(:title, :content)
+  #   params.require(:post).permit(:title, :content, mood)
   # end
 # end
 
