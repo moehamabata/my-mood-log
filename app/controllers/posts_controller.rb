@@ -10,10 +10,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 # アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
 
   # 一覧
-  def index
   # indexを定義する
-    @posts=Post.all
-  # データベースに保存されている全ての保存データを丸ごと持っていく
+  def index
+  # 「今ログインしている人（current_user）」に
+  # 紐づいている（外部キー user_id が一致する）日記だけを持ってこれる
+    @posts=current_user.posts
   end
 
   # 詳細
@@ -79,11 +80,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   #   # idから該当するデータを1件取り出す
   # end
   # # ストロングパラメータ
-  # def post_params
-  #   # post_paramsを定義する
-  #   params.require(:post).permit(:title, :content, mood)
-  # end
-# end
+   def post_params
+     # post_paramsを定義する
+     params.require(:post).permit(:title, :content, mood)
+   end
+ end
 
 private
   # 重複していた処理をまとめる
