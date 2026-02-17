@@ -31,7 +31,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     # これで「誰が書いたか(user_id)」が自動的にセットされる！
     # ログインユーザーに紐付けてデータを作成する
     # 今ログインしている本人のユーザー情報であるIDが自動的にセットされる
-    @post = current_user.posts.build
+    @post = current_user.posts.build(post_params)
     # 保存を試みる
     if @post.save
     # 投稿を保存したら詳細画面へ（Rails 7対応のstatusを追加）
