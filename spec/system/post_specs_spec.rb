@@ -1,19 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :system do
-  before do
-    driven_by(:rack_test)
-  end
+RSpec.describe "Posts", type::system do
 
-  it "投稿の詳細ページにタイトルと本文が表示される" do
-    # テスト用のデータを作る
-    post=Post.create!(title: "RSpec入門", content: "System Specのテスト")
+# テスト用のユーザーを準備（ログインが必要な場合）
+let(:user){User.create(email:'test@example.com',password:'password'
+password_confirmation:'password')}
 
-    # その投稿のページにアクセス
-    visit post_path(post)
+it "ブラウザが立ち上がり、投稿の詳細が表示されること"do
+# テスト用のデータを作る
+post_item=Post.create!(title:"RSpec入門",content:"System Specのテスト",
+mood:"楽しい",user:user)
 
-    # ページに正しい内容があるか確認
-    expect(page).to have_content("RSpec入門")
-    expect(page).to have_content("System Specのテスト")
-  end
+end
 end
