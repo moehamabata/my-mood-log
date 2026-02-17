@@ -6,6 +6,11 @@ password_confirmation:'password')}
 let!(:post_item){Post.create(
 title:'初期タイトル',content:'初期内容',mood:'普通',user:user)}
 
+before do
+post user_session_path,params:
+{user:{email:user.email,password:user.password}}
+end
+
 describe "Post CRUDテスト"do
 describe "GET/posts"do
 it "正常にレスポンスを返すこと"do
