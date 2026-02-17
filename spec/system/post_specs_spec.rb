@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type::system do
+RSpec.describe "Posts", type: :system do
 
 # テスト用のユーザーを準備（ログインが必要な場合）
 let(:user){User.create(email:'test@example.com',password:'password'
