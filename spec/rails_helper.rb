@@ -67,7 +67,7 @@ RSpec.configure do |config|
   # config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.
-  config.filter_rails_from_backtrace!
-  # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
+  config.before(:each,type::system)do
+  #画面が見えるモード（headlessじゃないモード）で起動する
+  driven_by :selenium,using::chorme,screen_size:[1400,1400]
 end
