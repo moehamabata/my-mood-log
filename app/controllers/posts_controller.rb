@@ -10,7 +10,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 # アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
 
   # 一覧
-  # indexを定義する
   def index
   # 「今ログインしている人（current_user）」に
   # 紐づいている（外部キー user_id が一致する）日記だけを持ってこれる
@@ -19,20 +18,18 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # 詳細
   def show
-  # showを定義する 
   end
 
   # 新規作成フォーム
   def new
-  # newを定義する
     @post=Post.new
   end
 
   # 投稿保存
   def create
-  # createを定義する
-    # @post = current_user.posts.build(post_params)
-    @post = Post.build(post_params)
+    # ログイン中のユーザー（current_user）の投稿（posts）とする
+    # これで「誰が書いたか(user_id)」が自動的にセットされる！
+    @post = current_user.posts.build
     # 今ログインしている本人のユーザー情報であるIDが自動的にセットされる
     if @post.save
     # 投稿を保存した際は
@@ -49,16 +46,14 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # 編集フォーム
   def edit
-  # editを定義する
   end
 
   # 投稿更新
   def update
-  # 更新を定義する
     @post=Post.find(params[:id])
     # idから該当するデータを1件取り出す
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: "更新しました"
     # 投稿に成功したら該当ポストを反映させる
     else
       render :edit
@@ -82,11 +77,11 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   # # ストロングパラメータ
    def post_params
      # post_paramsを定義する
-     params.require(:post).permit(:title, :content, mood)
+     params.require(:post).permit(:title, :content, :mood)
    end
  end
 
-private
+  private
   # 重複していた処理をまとめる
   def set_post
     # set_postを定義する
@@ -98,5 +93,3 @@ private
     # params.require(:post).permit(:title, :content, :mood)
     params.require(:user).permit(:title, :content, :mood)
   end
-
-end
