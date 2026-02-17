@@ -35,7 +35,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     # 今ログインしている本人のユーザー情報であるIDが自動的にセットされる
     if @post.save
     # 投稿を保存した際は
-      redirect_to @post, notice: "投稿できました！"
+      redirect_to @post, notice: "投稿できました！", status: :see_other
       # 投稿を表示させる
     else
     # 保存に失敗したら今のフォーム画面を再表示する
