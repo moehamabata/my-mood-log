@@ -70,6 +70,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   private
+
   def set_post
     # idから該当するデータを1件取り出す
     @post=Post.find(params[:id])
@@ -80,4 +81,4 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
      params.require(:post).permit(:title, :content, :mood)
    end
 
-end
+end #クラスの終わり
