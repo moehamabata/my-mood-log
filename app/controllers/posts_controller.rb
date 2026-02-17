@@ -27,16 +27,15 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # 投稿保存
   def create
-    #最終手段のデバック
-    render json: params and return
     # ログイン中のユーザー（current_user）の投稿（posts）とする
     # これで「誰が書いたか(user_id)」が自動的にセットされる！
-    @post = current_user.posts.build
+    # ログインユーザーに紐付けてデータを作成する
     # 今ログインしている本人のユーザー情報であるIDが自動的にセットされる
+    @post = current_user.posts.build
+    # 保存を試みる
     if @post.save
-    # 投稿を保存した際は
+    # 投稿を保存したら詳細画面へ（Rails 7対応のstatusを追加）
       redirect_to @post, notice: "投稿できました！", status: :see_other
-      # 投稿を表示させる
     else
     # 保存に失敗したら今のフォーム画面を再表示する
       puts @post.errors.full_messages
