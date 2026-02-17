@@ -27,6 +27,8 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # 投稿保存
   def create
+    #最終手段のデバック
+    render json: params and return
     # ログイン中のユーザー（current_user）の投稿（posts）とする
     # これで「誰が書いたか(user_id)」が自動的にセットされる！
     @post = current_user.posts.build
@@ -69,7 +71,6 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
   end
 
   private
-
   def set_post
     # idから該当するデータを1件取り出す
     @post=Post.find(params[:id])
