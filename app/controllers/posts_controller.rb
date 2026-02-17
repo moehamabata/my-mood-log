@@ -56,7 +56,7 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
       redirect_to @post, notice: "更新しました"
     # 投稿に成功したら該当ポストを反映させる
     else
-      render :edit
+      render :edit, status: :unprossable_entity
     # 投稿に失敗したら編集画面に戻る
     end
   end
