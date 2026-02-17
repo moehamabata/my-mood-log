@@ -68,28 +68,16 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
     # 削除後は一覧画面に戻る
   end
 
-  # # 重複していた処理をまとめる
-  # def set_post
-  # # set_postを定義する
-  #   @post=Post.find(params[:id])
-  #   # idから該当するデータを1件取り出す
-  # end
-  # # ストロングパラメータ
+  private
+
+  def set_post
+    # idから該当するデータを1件取り出す
+    @post=Post.find(params[:id])
+  end
+
+  # ストロングパラメータ
    def post_params
-     # post_paramsを定義する
      params.require(:post).permit(:title, :content, :mood)
    end
- end
 
-  private
-  # 重複していた処理をまとめる
-  def set_post
-    # set_postを定義する
-    @post=Post.find(params[:id])
-    # idから該当するデータを1件取り出す
-  end
-
-  def post_params
-    # params.require(:post).permit(:title, :content, :mood)
-    params.require(:user).permit(:title, :content, :mood)
-  end
+end
