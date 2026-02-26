@@ -1,32 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
-let(:user) do
-User.create(
-email: 'test@example.com',
-password: 'password',
-password_confirmation: 'password'
-)
-end
+  let(:user) do
+    User.create!(
+      email: 'test@example.com',
+      password: 'password',
+      password_confirmation: 'password'
+    )
+  end
 
-it "投稿の詳細が表示されること" do
+  let(:post_item) do
+    Post.create!(
+      title: "RSpec入門",
+      content: "System Specのテスト",
+      mood: "楽しい",
+      user: user
+    )
+  end
 
-post_item = Post.create!(
-title: "RSpec入門",
-content: "System Specのテスト",
-mood: "楽しい",
-user: user
-)
+  it "投稿の詳細が表示されること" do
+    # ログイン
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
 
-# 投稿の詳細ページに実際にアクセスする命令
-visit post_path(post_item)
+    # 投稿詳細へ
+    visit post_path(post_item)
 
-# 画面に期待する文字があるか確認
-expect(page).to have_content("RSpec入門")
-expect(page).to habe_content("System Specのテスト")
-
-# 動きを目で確認するために5秒間ブラウザを止める
-sleep 5
-
-end
+    expect(page).to have_content("RSpec入門")
+    expect(page).to have_content("System Specのテスト")
+  end
 end
