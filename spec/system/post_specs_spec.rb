@@ -9,7 +9,7 @@ password_confirmation: 'password'
 )
 end
 
-it "投稿の詳細が表示されること" dosuru
+it "投稿の詳細が表示されること" do
 
 post_item = Post.create!(
 title: "RSpec入門",
