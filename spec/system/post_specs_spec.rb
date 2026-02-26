@@ -21,8 +21,8 @@ RSpec.describe "Posts", type: :system do
   it "投稿の詳細が表示されること" do
     # ログイン
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'user[Email]', with: user.email
+    fill_in 'user[Password]', with: user.password
     click_button 'Log in'
 
     # 投稿詳細へ
