@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
 # PostsControllerクラスにApplicationControllerを継承させる
 
-# 1. まず「ログインしているか」を最優先でチェック！
-before_action :authenticate_user!
+  # 1. まず「ログインしているか」を最優先でチェック！
+  before_action :authenticate_user!
 
-# 2. その後に「編集するデータがあるか」などを探す
-before_action :set_post, only: [:show, :edit, :update, :destroy]
-# 共通の準備作業を自動化させておく
-# アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
+  # 2. その後に「編集するデータがあるか」などを探す
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # 共通の準備作業を自動化させておく
+  # アクション（各メソッド）が実行される前に、show, edit, updateの3つのことを実行してほしい
 
   # 一覧
   def index
@@ -64,13 +64,14 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # 削除フォーム
   def destroy
-    @post.destroy #データを削除する
-    redirect_to posts_path, status: :see_other, notice: "削除しました"
-    # 削除後は一覧画面に戻る
+    @post=Post.find(params[:id])
+    @post.destroy! #投稿を削除する
+
+    #削除後は投稿一覧画面に戻る
+    redirect_to posts_path, status: :see_other,notice:"削除しました"
   end
 
   private
-
   def set_post
     # idから該当するデータを1件取り出す
     @post=Post.find(params[:id])
