@@ -31,4 +31,21 @@ RSpec.describe "Posts", type: :system do
     expect(page).to have_content("RSpec入門")
     expect(page).to have_content("System Specのテスト")
   end
+
+
+  it "ログアウトができること" do
+    # ログイン処理を済ませる
+    visit login_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'password'
+    click_button 'ログイン'
+
+    # ログアウトボタンを押す
+    click_on 'ログアウト'
+
+    # ログイン画面に戻っているか、メッセージが出ているか確認
+    expect(page).to have_content 'ログアウトしました'
+    expect(current_path).to eq root_path
+  end
+
 end
