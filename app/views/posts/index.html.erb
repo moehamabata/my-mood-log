@@ -9,18 +9,26 @@
   </div>
 
   <div class="diary-grid">
-  <% @posts.each do |post| %>
-    <div class="diary-card">
-      <div class="mood-bar mood-status-<%= post.mood %>">
-        <span class="mood-label"><%= post.mood %></span>
+    <% @posts.each do |post| %>
+      <div class="diary-card">
+        <div class="mood-bar mood-status">
+          <span class="mood-label"><%= post.mood %></span>
+        </div>
+
+        <div class="card-content">
+          <span class="post-date">
+            <%= post.created_at.strftime("%Y.%m.%d") %>
+          </span>
+
+          <h2 class="post-title"><%= post.title %></h2>
+
+          <p class="post-excerpt">
+            <%= truncate(post.content, length: 60) %>
+          </p>
+
+          <%= link_to "詳しく見る", post_path(post), class: "link-show" %>
+        </div>
       </div>
-      
-      <div class="card-content">
-        <span class="post-date"><%= post.created_at.strftime("%Y.%m.%d") %></span>
-        <h2 class="post-title"><%= post.title %></h2>
-        <p class="post-excerpt"><%= truncate(post.content, length: 60) %></p>
-        <%= link_to "詳しく見る", post_path(post), class: "link-show" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
