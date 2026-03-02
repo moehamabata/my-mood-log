@@ -55,6 +55,7 @@ group :development do
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
   gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
+  gem 'htmlbeautifier' #HTML（や ERB）のインデントや改行を自動で整えてくれる整形用の gem
 end
 
 group :test do
