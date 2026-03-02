@@ -5,3 +5,15 @@ ja:
         email: Eメール
         password: パスワード
         password_confirmation: パスワード（確認用）
+
+  errors:
+    messages:
+      blank: "を入力してください"
+
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              too_short: "日記のタイトルは%{count}文字以上必要です"
