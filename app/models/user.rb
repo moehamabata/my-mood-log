@@ -6,4 +6,7 @@ class User < ApplicationRecord #UserクラスにApplicationRecordを継承させ
          :recoverable, :rememberable, :validatable
   #ログインしている人の投稿一覧を簡単に出せるようになる
   has_many :posts, dependent: :destroy
+  VALID_EMAIL_REGEX = /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\z/
+
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 end
