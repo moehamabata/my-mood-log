@@ -1,0 +1,7 @@
+ja: #TODO 今後実装予定
+  errors:
+    messages:
+      not_found: "は見つかりませんでした"
+#      not_found: "not found"
+      already_confirmed: "は既に登録済みです"
+#      already_confirmed: "was already confirmed"
