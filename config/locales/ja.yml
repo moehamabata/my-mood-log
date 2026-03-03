@@ -8,15 +8,25 @@ ja:
       post:
         title: タイトル
         content: 内容
+        mood: 気分
 
+    # errors:
+    #   models:
+    #     post:
+    #       attributes:
+    #         title:
+              # too_short: "は%{count}文字以上で入力してください"
+              # blank: "を入力してください"
+
+    # errors:
+    #   messages:
+    #     blank: "を入力してください"
   errors:
-    models:
-      post:
-        attributes:
-          title:
-            too_short: "は%{count}文字以上で入力してください"
+    messages:
+      too_short: "は%{count}文字以上で入力してください"
       blank: "を入力してください"
-
-    errors:
-      messages:
-        blanc: "を入力してください"
+    attributes:
+      content:
+        blank: "を入力してください"
+      mood:
+        blank: "を入力してください"
