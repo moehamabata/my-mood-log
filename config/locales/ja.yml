@@ -15,5 +15,6 @@ ja:
       models:
         post:
           attributes:
-            title:
-              too_short: "日記のタイトルは%{count}文字以上必要です"
+            title: タイトル
+              content: 内容
+                too_short: "は%{count}文字以上で入力してください"
