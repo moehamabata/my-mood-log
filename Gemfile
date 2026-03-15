@@ -69,7 +69,3 @@ group :development, :test do
   gem 'sqlite3'
   gem 'factory_bot_rails'
 end
-
-group :production do
-  gem 'pg'
-end
