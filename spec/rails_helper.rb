@@ -21,6 +21,8 @@ RSpec.configure do |config|
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
+  config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   # Use transactional fixtures
   config.use_transactional_fixtures = true
@@ -30,6 +32,9 @@ RSpec.configure do |config|
 
   # Filter Rails gems from backtrace
   config.filter_rails_from_backtrace!
+
+  # Deviseをテストで使うための機能を追加
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   # System spec (Capybara + Selenium)
   config.before(:each, type: :system) do

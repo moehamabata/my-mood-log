@@ -1,8 +1,9 @@
 <%= form_with(model: @post, local: true, class: "styled-form") do |f| %>
   
+  <%# エラー表示部分（クラス名を追加） %>
   <% if @post.errors.any? %>
-    <div style="color: red;">
-      <p><%= @post.errors.count %>件のエラーにより保存できませんでした。</p>
+    <div class="error-messages">
+      <p>⚠️ <%= @post.errors.count %>件のエラーがあります</p>
       <ul>
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,7 +11,8 @@
       </ul>
     </div>
   <% end %>
-  
+
+  <%# 入力欄の各ブロック %>
   <div class="form-group">
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, placeholder: "例：最高のランチに出会った", class: "form-input" %>
@@ -30,7 +32,7 @@
 
   <div class="form-group">
     <%= f.label :content, "今日のできごと" %>
-    <%= f.text_area :content, rows: 10, placeholder: "どんなことがありましたか？", class: "form-textarea" %>
+    <%= f.text_area :content, rows: 15, placeholder: "どんなことがありましたか？", class: "form-textarea" %>
   </div>
 
   <div class="form-actions">

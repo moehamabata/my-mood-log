@@ -11,7 +11,7 @@
   <div class="diary-grid">
     <% @posts.each do |post| %>
       <div class="diary-card">
-        <div class="mood-bar mood-status">
+        <div class="mood-bar mood-status-<%= post.mood %>">
           <span class="mood-label"><%= post.mood %></span>
         </div>
 
@@ -31,6 +31,14 @@
       </div>
     <% end %>
   </div>
-  <%= button_to "ログアウト",
-            destroy_user_session_path,
-            method: :delete %>
+  <div class="diary-grid">
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+      <% end %>
+    <% else %>
+      <p>投稿がありません</p>
+    <% end %>
+  </div>
+
+
+  <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-logout" %>

@@ -1,12 +1,21 @@
-class User < ApplicationRecord #UserクラスにApplicationRecordを継承させる
-  
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+class User < ApplicationRecord
+  # Include default devise modules.
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  #ログインしている人の投稿一覧を簡単に出せるようになる
-  has_many :posts, dependent: :destroy
-  VALID_EMAIL_REGEX = /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\z/
 
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+  has_many :posts, dependent: :destroy
+
+  # パスワードは英字と数字の両方を含む（正規表現）
+  # deviseのバリデーションより先に走らせるため、ここに定義
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  # validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は英字と数字の両方を含めてください" }, if: :password_required?
+  validates :password, format: { with: VALID_PASSWORD_REGEX }, if: :password_required?
+
+
+  private
+
+  # パスワードが必要な時（新規登録やパスワード変更時）だけバリデーションをかける判定
+  def password_required?
+    !persisted? || !password.nil? || !password_confirmation.nil?
+  end
 end

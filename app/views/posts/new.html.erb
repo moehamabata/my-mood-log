@@ -1,15 +1,43 @@
 <div class="form-wrapper">
   <div class="form-container">
-    <div class="form-header">
-      <h2>📝 新しい日記</h2>
-      <p>今の気持ちを言葉にしてみましょう</p>
-    </div>
+    <h2 class="auth-title">新しい日記を書く</h2>
 
-    <%# ここで _form.html.erb を呼び出します %>
-    <%= render "form", post: @post %>
+    <%= form_with(model: @post, local: true) do |f| %>
+      
+      <%# --- ここから追加：エラーメッセージの表示 --- %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation" style="color: #ff4757; background: #ffeef0; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+          <ul style="margin: 0; padding-left: 20px;">
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%# --- ここまで追加 --- %>
+
+      <div class="form-group">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title, class: "form-input", placeholder: "今日を一言で表すと？" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, "今日のできごと" %>
+        <%= f.text_area :content, class: "form-textarea", placeholder: "どんな一日でしたか？" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :mood, "今の気分は？" %>
+        <%= f.select :mood, ["楽しい", "普通", "悲しい", "幸せ", "元気", "寂しい"], {}, { class: "form-select" } %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "日記を保存する", class: "btn-submit" %>
+      </div>
+    <% end %>
 
     <div class="form-actions">
-      <%= link_to "キャンセルして戻る", posts_path, class: "btn-cancel" %>
+      <%= link_to "もどる", posts_path, class: "btn-logout" %>
     </div>
   </div>
 </div>
