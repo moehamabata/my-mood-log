@@ -29,3 +29,9 @@ ja:
       too_short: "を%{count}文字以上で入力してください"
       # not_saved: "%{resource}の登録に失敗しました"
       too_long: "を%{count}文字以下で入力してください"
+
+  device:
+    failure:
+      not_found_in_database: "メールアドレスまたはパスワードが違います"
+      user:
+        not_found_in_database: "メールアドレスまたはパスワードが違います"  
