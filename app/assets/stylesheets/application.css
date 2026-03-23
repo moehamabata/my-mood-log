@@ -89,7 +89,7 @@
   box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
 }
 
-/* --- カード表示用（念のため残す） --- */
+/* -- カード表示用-- */
 .diary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 .diary-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; }
 .mood-bar { padding: 10px; text-align: center; color: white; font-weight: bold; }
@@ -185,4 +185,53 @@
   background-color: #e2e8f0;
   color: #764ba2 !important;
   transform: translateY(-1px);
+}
+
+/* 詳細画面全体 */
+.post-detail.card {
+  max-width: 800px;  /* 広がりすぎないように制限 */
+  margin: 40px auto; /* 上下に余白を作り、左右中央寄せ */
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽い影をつけて浮き立たせる */
+}
+
+/* ヘッダー部分 */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.post-detail h1 {
+  font-size: 1.8rem;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+/* 本文のエリア */
+.detail-content {
+  line-height: 1.8;
+  color: #444;
+  min-height: 200px; /* 内容が少なくても形を保つ */
+  font-size: 1.1rem;
+}
+
+/* フッター（ボタンエリア） */
+.detail-footer {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* 削除ボタン */
+.btn-delete {
+  color: #ff4d4d;
+  text-decoration: none;
+  margin-left: auto; /* 削除ボタンだけ右端に寄せる */
 }
