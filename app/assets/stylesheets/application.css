@@ -189,7 +189,7 @@
 }
 
 /* 詳細画面全体 */
-body.post-detail.card {
+body .post-detail.card {
   max-width: 800px !important;  /* 広がりすぎないように制限 */
   margin: 40px auto !important; /* 上下に余白を作り、左右中央寄せ */
   padding: 30px !important;
@@ -207,12 +207,12 @@ body.post-detail.card {
   color: #666;
 }
 
-.post-detail h1 {
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
+body .post-detail h1 {
+  font-size: 1.8rem !important;
+  color: #333 !important;
+  border-bottom: 2px solid #f0f0f0 !important;
+  padding-bottom: 15px !important;
+  margin-bottom: 20px !important;
 }
 
 /* 本文のエリア */
