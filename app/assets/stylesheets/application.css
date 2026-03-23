@@ -1,3 +1,4 @@
+/* Update: 2026-03-23 16:50 */
 /* --- 全体の共通設定 --- */
 .container {
   max-width: 1000px;
@@ -188,13 +189,13 @@
 }
 
 /* 詳細画面全体 */
-.post-detail.card {
-  max-width: 800px;  /* 広がりすぎないように制限 */
-  margin: 40px auto; /* 上下に余白を作り、左右中央寄せ */
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽い影をつけて浮き立たせる */
+body.post-detail.card {
+  max-width: 800px !important;  /* 広がりすぎないように制限 */
+  margin: 40px auto !important; /* 上下に余白を作り、左右中央寄せ */
+  padding: 30px !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important; /* 軽い影をつけて浮き立たせる */
 }
 
 /* ヘッダー部分 */
