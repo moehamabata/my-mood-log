@@ -1,4 +1,4 @@
-class MoodsControllerLile
+class MoodsControllerLike
   def create(params)
     moood = Mood.new(
       feeling: params[:feeling],
