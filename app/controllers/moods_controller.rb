@@ -1,7 +1,7 @@
 class MoodsController < ApplicationController
   def mood_params
     # ストロングパラメータの設定（タイトル、内容）以外の不正なパラメータがmoodモデルに送られた場合は拒否
-    params.require(:mood).permit(:title, :content)
+    params.require(:mood).permit(:feeling, :note)
   end
 
   # 記事の作成画面は？？？
