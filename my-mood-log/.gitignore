@@ -35,3 +35,17 @@
 /config/master.key
 .DS_Store
 **/.DS_Store
+
+# Macの設定ファイルを無視
+.DS_Store
+**/.DS_Store
+
+# Railsのログや一時ファイルを無視
+/log/*
+/tmp/*
+/public/assets
+.byebug_history
+
+# データベースファイルを無視
+/db/*.sqlite3
+/db/*.sqlite3-journal
