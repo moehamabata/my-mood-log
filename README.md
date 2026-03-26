@@ -1,12 +1,29 @@
-## 学習記録メモ
-- -Day1-2025.08.24- 転職準備のための学習
-- -Day2-2025.08.25- [HTMLに関する基礎的な要素の学習](html/01_basic_structure.md)
-- -Day3-2025.08.27- [HTML/レイアウト指定](html/02_meta_settings.md)
-- -Day4-2025.08.28- [HTML/テキストタグ](html/03_text_tags.md)
-- -Day5-2025.08.29- [HTML/リンク画像](html/04_links_images.md)
-- -Day6-2025.08.30- [HTML/リスト](html/05_lists.md)
+## My Mood Log
+日々の感情を記録し、自分の心の変化を可視するアプリです。
 
+## サービスの概要
+忙しい毎日の中で、自分が「今、どう感じているか」をシンプルに記録。
+過去のログも振り返ることで、メンタルヘルスの維持をサポートします。
 
-## 学習計画リンク
-miroリンク
-- https://miro.com/app/board/uXjVKh0Kxpg=/
+## 使用技術
+・Backend: Ruby3. / Ruby on Rails 7.2.2
+・Database：PostgreSQL
+・Test：Test：RSpec (System Spec / Request Spec)
+・Deployment：Render
+・Environment：MacBook Pro
+
+## 主な記録
+・感情の記録（CRUD）：5段階のアイコンやテキストでその日の気分を保存。
+・ダッシュボード：過去のログを一覧や詳細の表示
+・レスポンシブ対応：スマートフォンからもスムーズに記録可能。
+
+## こだわったポイント
+・テストの徹底：RSpec を用い、正常系・異常系ともにシステムテストを記述。堅牢なコードを意識しました。
+・デプロイ管理：GitHub と Render を連携させ、継続的なデプロイ環境を構築しました。
+
+## ローカルでの起動方法
+git clone https://github.com/moehabata/my-mood-log.git
+cd my-mood-log
+bundle install
+rails db:create db:migrate
+bin/dev
