@@ -70,7 +70,6 @@ HEAD
   gem 'htmlbeautifier' #HTML（や ERB）のインデントや改行を自動で整えてくれる整形用の gem
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
-15e83568e23540d107d48e9b5f9898576315dcad
 end
 
 group :test do
@@ -78,12 +77,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-HEAD
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
   gem 'factory_bot_rails'
 end
-
-15e83568e23540d107d48e9b5f9898576315dcad
