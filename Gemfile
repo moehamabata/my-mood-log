@@ -18,7 +18,6 @@ gem "rails", "~> 7.2.2", ">= 7.2.2.2"
 gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
-15e83568e23540d107d48e9b5f9898576315dcad
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -41,8 +40,6 @@ gem "jbuilder"
 HEAD
 gem "devise" #ユーザー認証のライブラリ
 
-
-15e83568e23540d107d48e9b5f9898576315dcad
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
