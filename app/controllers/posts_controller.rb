@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def index
     # 「今ログインしている人（current_user）」に
     # 紐づいている（外部キー user_id が一致する）日記だけを持ってこれる
-    @posts = current_user.posts
+    @moods=current_user.posts
   end
 
   # 詳細

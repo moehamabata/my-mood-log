@@ -5,40 +5,39 @@
 
 <div class="container">
   <div class="action-bar">
-    <%= link_to "新しい日記を書く", new_post_path, class: "btn-new" %>
+    <%# リンク先はご自身のルーティングに合わせて調整してください %>
+    <%= link_to "新しい日記を書く", new_mood_path, class: "btn-new" %>
   </div>
 
   <div class="diary-grid">
-    <% @posts.each do |post| %>
-      <div class="diary-card">
-        <div class="mood-bar mood-status-<%= post.mood %>">
-          <span class="mood-label"><%= post.mood %></span>
+    <%# @posts ではなく @moods を使うように修正 %>
+    <% if @moods.any? %>
+      <% @moods.each do |mood| %>
+        <div class="diary-card">
+          <div class="mood-bar">
+            <span class="mood-label"><%= mood.feeling %></span>
+          </div>
+
+          <div class="card-content">
+            <span class="post-date">
+              <%= mood.created_at.strftime("%Y.%m.%d") %>
+            </span>
+
+            <p class="post-excerpt">
+              <%= truncate(mood.note, length: 60) %>
+            </p>
+
+            <%= link_to "詳しく見る", mood_path(mood), class: "link-show" %>
+          </div>
         </div>
-
-        <div class="card-content">
-          <span class="post-date">
-            <%= post.created_at.strftime("%Y.%m.%d") %>
-          </span>
-
-          <h2 class="post-title"><%= post.title %></h2>
-
-          <p class="post-excerpt">
-            <%= truncate(post.content, length: 60) %>
-          </p>
-
-          <%= link_to "詳しく見る", post_path(post), class: "link-show" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="diary-grid">
-    <% if @posts.any? %>
-      <% @posts.each do |post| %>
       <% end %>
     <% else %>
-      <p>投稿がありません</p>
+      <p style="text-align: center; padding: 20px;">投稿がありません（データは1件あるはずですが、読み込み設定を確認中です）</p>
     <% end %>
   </div>
 
-
-  <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-logout" %>
+  <%# ログアウトボタン %>
+  <% if user_signed_in? %>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-logout" %>
+  <% end %>
+</div>
