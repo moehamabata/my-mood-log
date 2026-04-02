@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-HEAD
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.2"
@@ -37,7 +36,6 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
-HEAD
 gem "devise" #ユーザー認証のライブラリ
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -65,7 +63,6 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-HEAD
   gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
   gem 'htmlbeautifier' #HTML（や ERB）のインデントや改行を自動で整えてくれる整形用の gem
 
