@@ -1,0 +1,33 @@
+body {
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+f1 {
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background: white;
+  pandding: 20px;
+  border-radius: 8px;
+}
+
+a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button {
+  background-color: #4a90e2;
+  color: white;
+  border:none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}

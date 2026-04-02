@@ -72,7 +72,11 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :resque
+<<<<<<< HEAD
   # config.active_job.queue_name_prefix = "myapp_production"
+=======
+  # config.active_job.queue_name_prefix = "mood_diary_production"
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
 
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.

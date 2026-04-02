@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Update: 2026-03-23 16:50 */
 /* --- 全体の共通設定 --- */
 .container {
@@ -236,3 +237,38 @@ body .post-detail h1 {
   text-decoration: none;
   margin-left: auto; /* 削除ボタンだけ右端に寄せる */
 }
+=======
+body {
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+f1 {
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background: white;
+  pandding: 20px;
+  border-radius: 8px;
+}
+
+a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button {
+  background-color: #4a90e2;
+  color: white;
+  border:none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad

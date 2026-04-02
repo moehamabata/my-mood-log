@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 services:
   - type: web
     name: my-mood-log # アプリ名（自由に変えてOK）
@@ -15,3 +16,13 @@ services:
 databases:
   - name: my-mood-log-db
     plan: free # 無料プラン
+=======
+# Omakase Ruby styling for Rails
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+
+# Overwrite or add rules to create your own house style
+#
+# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Enabled: false
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad

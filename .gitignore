@@ -33,3 +33,22 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+<<<<<<< HEAD
+=======
+.DS_Store
+**/.DS_Store
+
+# Macの設定ファイルを無視
+.DS_Store
+**/.DS_Store
+
+# Railsのログや一時ファイルを無視
+/log/*
+/tmp/*
+/public/assets
+.byebug_history
+
+# データベースファイルを無視
+/db/*.sqlite3
+/db/*.sqlite3-journal
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad

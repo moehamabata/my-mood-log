@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+<<<<<<< HEAD
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.2"
@@ -8,6 +9,17 @@ gem "sprockets-rails"
 group :development, :test, :production do
   gem "pg"
 end
+=======
+ruby "3.2.2" if ENV['RENDER']
+
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 7.2.2", ">= 7.2.2.2"
+#gem "cgi", ">= 0.3.3"
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -27,8 +39,11 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+<<<<<<< HEAD
 gem "devise" #ユーザー認証のライブラリ
 
+=======
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
@@ -54,8 +69,12 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
+<<<<<<< HEAD
   gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
   gem 'htmlbeautifier' #HTML（や ERB）のインデントや改行を自動で整えてくれる整形用の gem
+=======
+  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
 end
 
 group :test do
@@ -63,9 +82,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+<<<<<<< HEAD
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
   gem 'factory_bot_rails'
 end
+=======
+>>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
