@@ -22,21 +22,12 @@ default: &default
 
 development:
   <<: *default
-<<<<<<< HEAD
-  database: myapp_development
-=======
-  database: mood_diary_development
->>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
-
+  database: my_mood_log
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-<<<<<<< HEAD
-  #username: myapp
-=======
-  #username: mood_diary
->>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
+  #username: my_mood_log
 
   # The password associated with the PostgreSQL role (username).
   #password:
