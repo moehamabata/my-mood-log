@@ -1,22 +1,14 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
   <head>
-<<<<<<< HEAD
-    <title><%= content_for(:title) || "Myapp" %></title>
-=======
-    <title><%= content_for(:title) || "Mood Diary" %></title>
->>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
+    <title><%= content_for(:title) || "My Mood Log" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-<<<<<<< HEAD
-=======
-
     <link rel="manifest" href="/manifest.json">
->>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -25,7 +17,6 @@
   </head>
 
   <body>
-<<<<<<< HEAD
     <% if notice %>
       <p style="color: green; text-align: center; padding: 10px;"><%= notice %></p>
     <% end %>
@@ -33,15 +24,7 @@
     <% if alert %>
       <p style="color: red; text-align: center; padding: 10px;"><%= alert %></p>
     <% end %>
-    <%= yield %>
-  </body>
-</html>
-=======
-    <%= yield %>
-  </body>
-</html>
 
-<% if notice %>
-  <p><%= notice %></p>
-<% end %>
->>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
+    <%= yield %>
+  </body>
+</html>
