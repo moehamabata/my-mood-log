@@ -34,6 +34,6 @@ class MoodsController < ApplicationController
   def mood_params
     # あなたのDBの項目名に合わせて設定してください
     # もしDBが「title」と「content」なら、ここもそれに合わせる必要があります
-    params.require(:mood).permit(:ftitle, :content)
+    params.require(:mood).permit(:feeling, :note)
   end
 end

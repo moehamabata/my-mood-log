@@ -13,16 +13,15 @@
     <% if @moods && @moods.any? %>
       <% @moods.each do |mood| %>
         <div class="diary-card">
-          <%# ↓ .status ではなく .feeling に修正 %>
+          <%# ↓ ここを status から feeling に修正しました %>
           <div class="mood-bar mood-status-<%= mood.feeling %>">
             <%= mood.feeling %>
           </div>
           <div style="padding: 20px;">
-            <%# ↓ 日付をタイトルの代わりに表示（タイトル項目がない場合） %>
             <h2 style="margin: 0 0 10px 0; font-size: 1.2rem;">
               <%= mood.created_at.strftime("%Y/%m/%d") %> の記録
             </h2>
-            <%# ↓ .content ではなく .note に修正 %>
+            <%# ↓ ここを content から note に修正しました %>
             <p style="color: #666; font-size: 0.9rem;"><%= mood.note&.truncate(50) %></p>
             
             <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; font-size: 0.8rem; color: #999;">
