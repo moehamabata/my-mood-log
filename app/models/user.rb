@@ -3,7 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :posts, dependent: :destroy
+  has_many :moods, dependent: :destroy
 
   # パスワードは英字と数字の両方を含む（正規表現）
   # deviseのバリデーションより先に走らせるため、ここに定義
