@@ -10,17 +10,23 @@
   </div>
 
   <div class="diary-grid">
-    <% if @moods.any? %>
+    <% if @moods && @moods.any? %>
       <% @moods.each do |mood| %>
         <div class="diary-card">
-          <div class="mood-bar mood-status-<%= mood.status %>">
-            <%= mood.status %>
+          <%# ↓ .status ではなく .feeling に修正 %>
+          <div class="mood-bar mood-status-<%= mood.feeling %>">
+            <%= mood.feeling %>
           </div>
           <div style="padding: 20px;">
-            <h2 style="margin: 0 0 10px 0; font-size: 1.2rem;"><%= mood.title %></h2>
-            <p style="color: #666; font-size: 0.9rem;"><%= mood.content.truncate(50) %></p>
+            <%# ↓ 日付をタイトルの代わりに表示（タイトル項目がない場合） %>
+            <h2 style="margin: 0 0 10px 0; font-size: 1.2rem;">
+              <%= mood.created_at.strftime("%Y/%m/%d") %> の記録
+            </h2>
+            <%# ↓ .content ではなく .note に修正 %>
+            <p style="color: #666; font-size: 0.9rem;"><%= mood.note&.truncate(50) %></p>
+            
             <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; font-size: 0.8rem; color: #999;">
-              <%= mood.created_at.strftime("%Y/%m/%d %H:%M") %>
+              <%= mood.created_at.strftime("%H:%M") %> 投稿
             </div>
             <%= link_to "詳細を見る", mood_path(mood), style: "display: block; margin-top: 10px; color: #764ba2; text-decoration: none; font-weight: bold;" %>
           </div>
