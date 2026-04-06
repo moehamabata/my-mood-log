@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "3.2.2" if ENV['RENDER']
+ruby "3.4.4" if ENV['RENDER']
 
 gem "rails", "~> 7.2.2", ">= 7.2.2.2"
 gem "sprockets-rails"
