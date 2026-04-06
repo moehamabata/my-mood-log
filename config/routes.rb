@@ -1,11 +1,12 @@
-# config/routes.rb
 Rails.application.routes.draw do
+  # ログイン機能（Devise）の設定
   devise_for :users
-  root "posts#index"
 
-  resources :posts
-  resources :users, only: [:show] # ←これを追記（プロフィール表示用）
-Rails.application.routes.draw do
-  root "moods#index" #ここでトップページを moods#index に設定
+  # トップページの設定（moodsの一覧を表示）
+  root "moods#index"
+
+  # 各機能のルート設定
   resources :moods
+  resources :users, only: [:show]
+  resources :posts
 end
