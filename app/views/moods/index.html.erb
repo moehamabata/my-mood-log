@@ -1,0 +1,33 @@
+<header class="main-header">
+  <h1>My Mood Log</h1>
+  <p>日々の感情を可視化する、あなただけの日記帳</p>
+</header>
+
+<div class="container">
+  <div class="top-actions">
+    <%= link_to "新しい日記を書く", new_mood_path, class: "btn-new" %>
+    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
+  </div>
+
+  <div class="diary-grid">
+    <% if @moods.any? %>
+      <% @moods.each do |mood| %>
+        <div class="diary-card">
+          <div class="mood-bar mood-status-<%= mood.status %>">
+            <%= mood.status %>
+          </div>
+          <div style="padding: 20px;">
+            <h2 style="margin: 0 0 10px 0; font-size: 1.2rem;"><%= mood.title %></h2>
+            <p style="color: #666; font-size: 0.9rem;"><%= mood.content.truncate(50) %></p>
+            <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; font-size: 0.8rem; color: #999;">
+              <%= mood.created_at.strftime("%Y/%m/%d %H:%M") %>
+            </div>
+            <%= link_to "詳細を見る", mood_path(mood), style: "display: block; margin-top: 10px; color: #764ba2; text-decoration: none; font-weight: bold;" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p style="text-align: center; color: #999; margin-top: 50px;">まだ日記がありません。最初の一歩を書き出してみませんか？</p>
+    <% end %>
+  </div>
+</div>
