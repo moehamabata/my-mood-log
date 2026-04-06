@@ -6,6 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= yield :head %>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
@@ -14,6 +15,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+
   <body>
     <% if notice %>
       <p style="color: green; text-align: center; padding: 10px;"><%= notice %></p>
@@ -21,6 +23,7 @@
     <% if alert %>
       <p style="color: red; text-align: center; padding: 10px;"><%= alert %></p>
     <% end %>
+
     <%= yield %>
   </body>
 </html>
