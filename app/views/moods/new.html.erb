@@ -1,15 +1,43 @@
-<form action="/moods" method="post">
-  <label>今日の気分</label>
-  <select name="feeling">
-    <option value="happy">嬉しい</option>
-    <option value="lucky">幸せ</option>
-    <option value="sad">悲しい</option>
-    <option value="angry">怒り</option>
-    <option value="tirred">疲れ</option>
-  </select>
+<div class="form-wrapper">
+  <div class="form-container">
+    <h1 class="form-title" style="text-align: center; color: #764ba2; margin-bottom: 40px; font-size: 2.2rem;">
+      新しい日記を書く
+    </h1>
 
-  <label>メモ</label>
-  <textarea name="note"></textarea>
+    <%= form_with(model: @mood, local: true) do |f| %>
+      <% if @mood.errors.any? %>
+        <div style="background: #fff5f5; color: #c0392b; padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #e74c3c;">
+          <h2 style="font-size: 1.1rem; margin-top: 0;"><%= @mood.errors.count %>つのエラーがあります</h2>
+          <ul style="margin-bottom: 0;">
+            <% @mood.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <button type="submit">記録する</button>
-</form>
+      <div class="form-group">
+        <%= f.label :feeling, "今の気分" %>
+        <%# CSSの .form-select がなかったので、.form-input を適用して高さを出しています %>
+        <%= f.select :feeling, 
+            [["嬉しい", "happy"], ["幸せ", "lucky"], ["悲しい", "sad"], ["怒り", "angry"], ["疲れ", "tired"]], 
+            { include_blank: "選択してください" }, 
+            { class: "form-input" } 
+        %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :note, "メモ" %>
+        <%= f.text_area :note, class: "form-textarea", placeholder: "どんなことがありましたか？" %>
+      </div>
+
+      <div class="form-actions" style="text-align: center; margin-top: 50px;">
+        <%= f.submit "記録する", class: "btn-submit" %>
+        
+        <div style="margin-top: 30px;">
+          <%= link_to "一覧に戻る", moods_path, style: "color: #764ba2; text-decoration: none; font-weight: bold; font-size: 1.1rem;" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
