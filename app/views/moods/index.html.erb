@@ -4,17 +4,14 @@
 </header>
 
 <div class="container">
-  <%# --- 1. ボタン類を中央に寄せる --- %>
+  <%# --- 1. 【上部】新しい日記を書くボタンだけを表示 --- %>
   <div class="centered-wrapper">
     <%= link_to '新しい日記を書く', new_mood_path, class: 'btn-new' %>
-    
-    <%# ログアウトボタン（Devise用） %>
-    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn-logout-simple' %>
   </div>
 
   <hr class="section-divider">
 
-  <%# --- 2. 日記がある場合とない場合の出し分け --- %>
+  <%# --- 2. メインコンテンツ（日記一覧 or メッセージ） --- %>
   <% if @moods && @moods.any? %>
     <div class="diary-grid">
       <% @moods.each do |mood| %>
@@ -37,17 +34,17 @@
       <% end %>
     </div>
   <% else %>
-    <%# --- 3. 日記がない場合のメッセージを中央に --- %>
     <div class="centered-wrapper">
       <p style="font-size: 1.3rem; font-weight: bold; color: #764ba2;">まだ日記がありません。</p>
       <p style="color: #666; margin-bottom: 20px;">最初の１歩を書き出してみませんか？</p>
       <%= link_to '最初の日記を書く', new_mood_path, class: 'btn-new' %>
     </div>
-    <%# --- 3. ログアウトボタン（一番下） --- %>
-    <div class="centered-wrapper" style="margin-top: 60px; margin-bottom: 40px;">
-      <hr style="width: 100px; border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
-      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn-logout-simple' %>
-    </div>
-  </div>
   <% end %>
+
+  <%# --- 3. 【一番下】ログアウトボタンを表示 --- %>
+  <div class="centered-wrapper" style="margin-top: 80px; margin-bottom: 50px;">
+    <%# 控えめな区切り線 %>
+    <div style="width: 50px; height: 1px; background: #eee; margin-bottom: 20px;"></div>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn-logout-simple' %>
+  </div>
 </div>
