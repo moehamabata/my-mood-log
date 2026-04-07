@@ -142,21 +142,22 @@ body {
 }
 
 /* ログアウトボタンをお洒落にする */
+/* ログアウトエリアの調整 */
 .btn-logout-simple {
   background: none;
-  border: 1px solid #ddd;
-  color: #888;
-  padding: 8px 25px;
+  border: 1px solid #ccc;
+  color: #999;
+  padding: 8px 30px;
   border-radius: 50px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: 0.3s;
+  font-size: 0.85rem;
+  transition: all 0.3s;
 }
 
 .btn-logout-simple:hover {
-  background: #f8f8f8;
-  color: #333;
-  border-color: #bbb;
+  background: #fdfdfd;
+  color: #e74c3c; /* ホバーした時だけ少し赤っぽくして「ログアウト」感を出す */
+  border-color: #e74c3c;
 }
 
 /* 「まだ日記がありません」のテキスト装飾 */

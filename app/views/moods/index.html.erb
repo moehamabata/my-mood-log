@@ -43,5 +43,11 @@
       <p style="color: #666; margin-bottom: 20px;">最初の１歩を書き出してみませんか？</p>
       <%= link_to '最初の日記を書く', new_mood_path, class: 'btn-new' %>
     </div>
+    <%# --- 3. ログアウトボタン（一番下） --- %>
+    <div class="centered-wrapper" style="margin-top: 60px; margin-bottom: 40px;">
+      <hr style="width: 100px; border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn-logout-simple' %>
+    </div>
+  </div>
   <% end %>
 </div>
