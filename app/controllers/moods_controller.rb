@@ -24,16 +24,20 @@ class MoodsController < ApplicationController
     end
   end
 
-  # ↓ もし「詳細を見る」をクリックしてエラーが出るなら、この show が必要です
   def show
     @mood = current_user.moods.find(params[:id])
+  end
+
+  def destroy
+    @mood = Mood.find(params[:id])
+    @mood.destroy
+    # status: :see_other をつけるのが Rails 7 のルール
+    redirect_to moods_path, notice: "削除しました", status: :see_other
   end
 
   private
 
   def mood_params
-    # あなたのDBの項目名に合わせて設定してください
-    # もしDBが「title」と「content」なら、ここもそれに合わせる必要があります
     params.require(:mood).permit(:feeling, :note)
   end
 end

@@ -26,9 +26,10 @@
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
         <%= link_to "← 一覧に戻る", moods_path, style: "color: #764ba2; text-decoration: none; font-weight: bold;" %>
         
-        <%= link_to "削除", mood_path(@mood), 
-            data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, 
-            style: "color: #e74c3c; text-decoration: none; font-size: 0.9rem;" %>
+        <%= button_to "削除", mood_path(@mood), 
+    method: :delete, 
+    data: { turbo_confirm: "本当に削除しますか？" }, 
+    style: "background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 0.9rem;" %>
       </div>
     </div>
 
