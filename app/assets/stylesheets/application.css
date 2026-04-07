@@ -129,3 +129,37 @@ body {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
+
+.centered-wrapper {
+  display: flex;             /* 中身を整列させる魔法の指示 */
+  flex-direction: column;    /* 中身を縦に並べる */
+  align-items: center;       /* 左右の真ん中に寄せる */
+  justify-content: center;   /* 上下の真ん中に寄せる */
+  text-align: center;        /* 文字も真ん中に */
+  width: 100%;               /* 横幅いっぱいのスペースを確保 */
+  margin: 40px auto;         /* 上下に余白を作り、左右を自動で中央へ */
+  gap: 20px;                 /* ボタンや文字の間のスキマ */
+}
+
+/* ログアウトボタンをお洒落にする */
+.btn-logout-simple {
+  background: none;
+  border: 1px solid #ddd;
+  color: #888;
+  padding: 8px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn-logout-simple:hover {
+  background: #f8f8f8;
+  color: #333;
+  border-color: #bbb;
+}
+
+/* 「まだ日記がありません」のテキスト装飾 */
+.empty-message p {
+  margin-bottom: 10px;
+}
