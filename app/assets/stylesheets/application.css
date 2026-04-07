@@ -164,3 +164,29 @@ body {
 .empty-message p {
   margin-bottom: 10px;
 }
+
+/* --- 気分ごとの色分け設定 --- */
+/* 共通のスタイル（太さや丸み） */
+.mood-bar {
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+  color: white; /* 文字は白抜き */
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+/* 各気分ごとの背景色 */
+.mood-status-happy { background-color: #f1c40f !important; } /* 黄色 */
+.mood-status-lucky { background-color: #e67e22 !important; } /* オレンジ */
+.mood-status-sad   { background-color: #3498db !important; } /* 青 */
+.mood-status-angry { background-color: #e74c3c !important; } /* 赤 */
+.mood-status-tired { background-color: #95a5a6 !important; } /* グレー */
+
+/* もし日本語（嬉しい、悲しい等）で保存されている場合 */
+.mood-status-嬉しい { background-color: #f1c40f !important; }
+.mood-status-幸せ   { background-color: #e67e22 !important; }
+.mood-status-悲しい { background-color: #3498db !important; }
+.mood-status-怒り   { background-color: #e74c3c !important; }
+.mood-status-疲れ   { background-color: #95a5a6 !important; }
