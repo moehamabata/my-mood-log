@@ -3,7 +3,6 @@
  *= require_self
  */
 
-/* Update: 2026-03-23 16:50 */
 /* --- 全体の共通設定 --- */
 
 body {
@@ -104,4 +103,29 @@ body {
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
+}
+
+/* ボタン類を中央に寄せる */
+.actions-top, .auth-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* 「まだ日記がありません」のメッセージを中央に */
+.empty-message {
+  text-align: center;
+  padding: 50px 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin: 20px auto;
+  max-width: 600px;
+  color: #666;
+}
+
+.empty-message p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
