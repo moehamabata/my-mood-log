@@ -1,0 +1,27 @@
+<div class="container">
+  <article class="post-detail card">
+    <div class="detail-header">
+      <div class="header-top">
+        <span class="date"><%= @post.created_at.strftime("%Y年 %m月 %d日") %></span>
+        <% if @post.mood.present? %>
+          <span class="mood-badge mood-status-<%= @post.mood %>"><%= @post.mood %></span>
+        <% end %>
+      </div>
+      <h1><%= @post.title %></h1>
+    </div>
+
+    <div class="detail-content">
+      <%= simple_format(@post.content) %>
+    </div>
+
+    <hr class="divider">
+
+    <div class="detail-footer">
+      <%= link_to "編集する", edit_post_path(@post), class: "btn-edit" %>
+      <%= link_to "一覧に戻る", posts_path, class: "btn-back" %>
+      <%= link_to "削除", post_path(@post), 
+                   data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, 
+                   class: "btn-delete" %>
+    </div>
+  </article>
+</div>
