@@ -4,40 +4,48 @@
 </header>
 
 <div class="container">
-  <div class="action-bar">
-    <%# リンク先はご自身のルーティングに合わせて調整してください %>
-    <%= link_to "新しい日記を書く", new_mood_path, class: "btn-new" %>
+  <%# --- 1. 【上部】新しい日記を書くボタン --- %>
+  <div class="centered-wrapper">
+    <%= link_to '新しい日記を書く', new_post_path, class: 'btn-new' %>
   </div>
 
-  <div class="diary-grid">
-    <%# @posts ではなく @moods を使うように修正 %>
-    <% if @moods.any? %>
-      <% @moods.each do |mood| %>
+  <hr class="section-divider">
+
+  <%# --- 2. メインコンテンツ（日記一覧 or メッセージ） --- %>
+  <% if @posts && @posts.any? %>
+    <div class="diary-grid">
+      <% @posts.each do |post| %>
         <div class="diary-card">
-          <div class="mood-bar">
-            <span class="mood-label"><%= mood.feeling %></span>
+          <div class="mood-bar mood-status-<%= post.mood %>">
+            <%= Post::MOOD_LABELS[post.mood] || post.mood %>
           </div>
-
-          <div class="card-content">
-            <span class="post-date">
-              <%= mood.created_at.strftime("%Y.%m.%d") %>
-            </span>
-
-            <p class="post-excerpt">
-              <%= truncate(mood.note, length: 60) %>
-            </p>
-
-            <%= link_to "詳しく見る", mood_path(mood), class: "link-show" %>
+          <div style="padding: 20px;">
+            <h2 style="margin: 0 0 10px 0; font-size: 1.2rem;">
+              <%= post.title %>
+            </h2>
+            <div style="color: #999; font-size: 0.85rem; margin-bottom: 6px;">
+              <%= post.created_at.strftime("%Y/%m/%d") %> の記録
+            </div>
+            <p style="color: #666; font-size: 0.9rem;"><%= post.content.truncate(50) %></p>
+            <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; font-size: 0.8rem; color: #999;">
+              <%= post.created_at.strftime("%H:%M") %> 投稿
+            </div>
+            <%= link_to "詳細を見る", post_path(post), style: "display: block; margin-top: 10px; color: #764ba2; text-decoration: none; font-weight: bold;" %>
           </div>
         </div>
       <% end %>
-    <% else %>
-      <p style="text-align: center; padding: 20px;">投稿がありません（データは1件あるはずですが、読み込み設定を確認中です）</p>
-    <% end %>
-  </div>
-
-  <%# ログアウトボタン %>
-  <% if user_signed_in? %>
-    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-logout" %>
+    </div>
+  <% else %>
+    <div class="centered-wrapper">
+      <p style="font-size: 1.3rem; font-weight: bold; color: #764ba2;">投稿がありません</p>
+      <p style="color: #666; margin-bottom: 20px;">最初の１歩を書き出してみませんか？</p>
+      <%= link_to '最初の日記を書く', new_post_path, class: 'btn-new' %>
+    </div>
   <% end %>
+
+  <%# --- 3. 【一番下】ログアウトボタン --- %>
+  <div class="centered-wrapper" style="margin-top: 80px; margin-bottom: 50px;">
+    <div style="width: 50px; height: 1px; background: #eee; margin-bottom: 20px;"></div>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn-logout-simple' %>
+  </div>
 </div>

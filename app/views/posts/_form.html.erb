@@ -1,6 +1,6 @@
 <%= form_with(model: @post, local: true, class: "styled-form") do |f| %>
   
-  <%# エラー表示部分（クラス名を追加） %>
+  <%# エラー表示部分 %>
   <% if @post.errors.any? %>
     <div class="error-messages">
       <p>⚠️ <%= @post.errors.count %>件のエラーがあります</p>
@@ -20,14 +20,7 @@
 
   <div class="form-group">
     <%= f.label :mood, "今の気分は？" %>
-    <%= f.select :mood, [
-      ["✨ 楽しい", "楽しい"],
-      ["🍀 幸せ", "幸せ"],
-      ["☁️ 普通", "普通"],
-      ["🔥 元気", "元気"],
-      ["🌙 寂しい", "寂しい"],
-      ["😢 悲しい", "悲しい"]
-    ], { prompt: "選択してください" }, { class: "form-select" } %>
+    <%= f.select :mood, Post.mood_options, { prompt: "選択してください" }, { class: "form-select" } %>
   </div>
 
   <div class="form-group">

@@ -101,7 +101,7 @@ RSpec.describe "Posts", type: :request do
         { post: {
           title: "新規タイトル",
           content: "新規テスト内容",
-          mood: "普通",
+          mood: "normal",
           user: user,
         } }
       }
@@ -110,12 +110,12 @@ RSpec.describe "Posts", type: :request do
           post posts_path, params: valid_params
         }.to change(Post, :count).by(1)
         expect(response).to redirect_to(posts_path) # 一覧画面にリダイレクトが行われたかを確認
-        expect(flash[:notice]).to eq "投稿できました！"
+        expect(flash[:notice]).to eq "日記を投稿しました！"
 
         created_post = Post.last
         expect(created_post.title).to eq "新規タイトル" # 想定通りの値で保存されているかを検証
         expect(created_post.content).to eq "新規テスト内容"
-        expect(created_post.mood).to eq "普通"
+        expect(created_post.mood).to eq "normal"
         expect(created_post.user).to eq user
       end
 
@@ -124,7 +124,7 @@ RSpec.describe "Posts", type: :request do
           { post: {
             title: "",
             content: "新規テスト内容",
-            mood: "普通",
+            mood: "normal",
             user: user,
           } }
         #  レコードが増えないことを検証
@@ -144,7 +144,7 @@ RSpec.describe "Posts", type: :request do
           my_post = Post.create!(
             title: "編集テスト",
             content: "内容",
-            mood: "普通",
+            mood: "normal",
             user: user
           )
           get edit_post_path(my_post)
@@ -165,7 +165,7 @@ RSpec.describe "Posts", type: :request do
           any_post = Post.create!(
             title: "テスト",
             content: "内容",
-            mood: "普通",
+            mood: "normal",
             user: user
           )
           get edit_post_path(any_post)
@@ -179,7 +179,7 @@ RSpec.describe "Posts", type: :request do
         { post: {
           title: "更新されたタイトル",
           content: "更新された内容",
-          mood: "更新された気分",
+          mood: "excited",
           user: user,
         } }
       }

@@ -10,6 +10,8 @@ ja:
         content: 内容
         mood: 気分
     errors:
+      messages:
+        record_invalid: バリデーションに失敗しました
       models:
         post:
           attributes:
@@ -32,4 +34,4 @@ ja:
   devise:
     failure:
       user:
-        not_found_in_database: "メールアドレスまたはパスワードが違います"
+        not_found_in_database: メールアドレスまたはパスワードが違います
