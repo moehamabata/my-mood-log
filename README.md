@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 気分可視化日記アプリ
 
 ### 🌟 サービス概要
@@ -20,34 +19,46 @@
 * Ruby on Rails / Ruby
 * SQLite3（開発環境）
 * HTML / CSS / JavaScript
-=======
-## My Mood Log
-日々の感情を記録し、自分の心の変化を可視するアプリです。
 
-## サービスの概要
-忙しい毎日の中で、自分が「今、どう感じているか」をシンプルに記録。
-過去のログも振り返ることで、メンタルヘルスの維持をサポートします。
+---
 
-## 使用技術
-・Backend: Ruby3. / Ruby on Rails 7.2.2
-・Database：PostgreSQL
-・Test：Test：RSpec (System Spec / Request Spec)
-・Deployment：Render
-・Environment：MacBook Pro
+## Docker開発環境での起動方法
 
-## 主な記録
-・感情の記録（CRUD）：5段階のアイコンやテキストでその日の気分を保存。
-・ダッシュボード：過去のログを一覧や詳細の表示
-・レスポンシブ対応：スマートフォンからもスムーズに記録可能。
+このリポジトリは、Docker Compose（v2以降の `docker compose` コマンド）で開発環境を構築できます。
 
-## こだわったポイント
-・テストの徹底：RSpec を用い、正常系・異常系ともにシステムテストを記述。堅牢なコードを意識しました。
-・デプロイ管理：GitHub と Render を連携させ、継続的なデプロイ環境を構築しました。
+### 前提
+- Docker Desktopがインストールされていること
 
-## ローカルでの起動方法
-git clone https://github.com/moehabata/my-mood-log.git
-cd my-mood-log
-bundle install
-rails db:create db:migrate
-bin/dev
->>>>>>> 15e83568e23540d107d48e9b5f9898576315dcad
+### 起動手順
+1. イメージのビルドとサービス起動
+
+   ```sh
+   docker compose up --build
+   ```
+
+2. 別ターミナルでDB作成・マイグレーション
+
+   ```sh
+   docker compose run web bin/rails db:create db:migrate
+   ```
+
+3. サービスの停止
+
+   ```sh
+   docker compose down
+   ```
+
+### 備考
+- DBの接続情報は `config/database.yml` でDocker用に自動設定されます。
+- `docker-compose` ではなく `docker compose` コマンドを使用してください。
+
+### 2回目以降の起動
+2回目以降はビルド不要なので、以下のコマンドで素早くコンテナを立ち上げられます。
+
+```sh
+# バックグラウンドで起動
+docker compose up -d
+
+# フォアグラウンドで起動（ログを表示）
+docker compose up
+```
